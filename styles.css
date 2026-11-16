@@ -1,0 +1,271 @@
+/* 생활 계산소 · 루트 허브 — 공통 스타일 */
+:root {
+  --ink: #201c19;
+  --ink-soft: #55504a;
+  --line: #e6dfd6;
+  --bg: #fbf8f3;
+  --card: #ffffff;
+  --life: #8f2f4d;
+  --realty: #0f5f5c;
+  --nomad: #12325f;
+  --radius: 16px;
+  --shadow: 0 1px 2px rgba(32, 28, 25, .04), 0 8px 24px rgba(32, 28, 25, .06);
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+    "Malgun Gothic", "Segoe UI", Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.72;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+a { color: inherit; }
+
+.wrap {
+  width: min(1080px, 100% - 40px);
+  margin-inline: auto;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--ink);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 0 0 10px 0;
+  z-index: 10;
+}
+.skip-link:focus { left: 0; }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: rgba(251, 248, 243, .92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header .inner {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-height: 62px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.brand .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--life);
+  box-shadow: 0 0 0 4px rgba(143, 47, 77, .12);
+}
+
+.site-nav {
+  margin-left: auto;
+  display: flex;
+  gap: 16px;
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+.site-nav a { text-decoration: none; }
+.site-nav a:hover { color: var(--ink); text-decoration: underline; }
+
+.hero {
+  padding: 64px 0 40px;
+}
+
+.hero h1 {
+  margin: 0 0 16px;
+  font-size: clamp(28px, 4.6vw, 44px);
+  line-height: 1.28;
+  letter-spacing: -.022em;
+  font-weight: 800;
+}
+
+.hero .lede {
+  margin: 0;
+  max-width: 44em;
+  font-size: clamp(16px, 2.1vw, 19px);
+  color: var(--ink-soft);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 22px;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+.chips li {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 5px 12px;
+}
+
+.cards {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  padding: 12px 0 8px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 26px 24px 22px;
+  box-shadow: var(--shadow);
+}
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: var(--accent, var(--life));
+}
+.card--life { --accent: var(--life); }
+.card--realty { --accent: var(--realty); }
+.card--nomad { --accent: var(--nomad); }
+
+.card .kicker {
+  margin: 6px 0 6px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--accent, var(--life));
+}
+
+.card h2 {
+  margin: 0 0 10px;
+  font-size: 21px;
+  line-height: 1.35;
+  letter-spacing: -.015em;
+}
+
+.card p { margin: 0 0 14px; color: var(--ink-soft); font-size: 16px; }
+
+.card ul {
+  margin: 0 0 20px;
+  padding-left: 18px;
+  color: var(--ink-soft);
+  font-size: 15.5px;
+}
+.card ul li { margin-bottom: 4px; }
+
+.card .actions {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  font-size: 15px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  font-weight: 700;
+  color: #fff;
+  background: var(--accent, var(--life));
+  padding: 10px 16px;
+  border-radius: 10px;
+}
+.btn:hover { filter: brightness(1.08); }
+
+.text-link { color: var(--ink-soft); text-decoration: none; }
+.text-link:hover { color: var(--ink); text-decoration: underline; }
+
+section.block {
+  padding: 40px 0;
+  border-top: 1px solid var(--line);
+}
+
+section.block h2 {
+  margin: 0 0 14px;
+  font-size: clamp(21px, 3vw, 26px);
+  letter-spacing: -.018em;
+}
+
+.block p { margin: 0 0 14px; color: var(--ink-soft); max-width: 46em; }
+.block ul { color: var(--ink-soft); padding-left: 20px; max-width: 46em; }
+.block ul li { margin-bottom: 8px; }
+
+.block strong { color: var(--ink); }
+
+.callout {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--life);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin: 22px 0 0;
+  box-shadow: var(--shadow);
+}
+.callout p { margin: 0; }
+
+footer.site-footer {
+  border-top: 1px solid var(--line);
+  margin-top: 24px;
+  padding: 32px 0 56px;
+  font-size: 14.5px;
+  color: var(--ink-soft);
+}
+footer.site-footer .rows {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  margin-bottom: 14px;
+}
+footer.site-footer a { text-decoration: none; }
+footer.site-footer a:hover { text-decoration: underline; }
+footer.site-footer .fine { font-size: 13.5px; color: #7a736b; }
+
+/* 개인정보처리방침 같은 문서 페이지 */
+.doc { padding: 40px 0 24px; }
+.doc h1 { font-size: clamp(26px, 4vw, 34px); margin: 0 0 8px; letter-spacing: -.02em; }
+.doc .doc-meta { color: var(--ink-soft); font-size: 15px; margin: 0 0 26px; }
+.doc h2 { font-size: 20px; margin: 34px 0 10px; }
+.doc p, .doc li { color: var(--ink-soft); }
+.doc ul { padding-left: 20px; }
+.doc table { width: 100%; border-collapse: collapse; font-size: 15px; margin: 12px 0 8px; }
+.doc th, .doc td { border: 1px solid var(--line); padding: 9px 11px; text-align: left; vertical-align: top; }
+.doc th { background: #fff; color: var(--ink); }
+.doc a { color: var(--life); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .card { transition: transform .16s ease, box-shadow .16s ease; }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 2px 4px rgba(32, 28, 25, .05), 0 14px 32px rgba(32, 28, 25, .09); }
+}
